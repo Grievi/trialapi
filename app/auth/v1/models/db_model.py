@@ -45,12 +45,7 @@ class myapi:
                 content VARCHAR NOT NULL
             )
             """)
-            cls.cur.execute("""
-            CREATE TABLE IF NOT EXISTS language(
-                lang_Id serial PRIMARY kEY,
-                language VARCHAR NOT NULL
-            )
-            """)
+
             cls.conn.commit()
             print('Tables successfully created')
         except Exception as e:
@@ -85,3 +80,8 @@ class myapi:
         """
         cls.cur.execute(query_string)
         return cls.cur.fetchall()
+
+    # @classmethod
+    # def delete_one(cls, query_string):
+    #     cls.cur.execute(query_string)
+    #     return cls.cur.delete_one()

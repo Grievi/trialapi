@@ -52,8 +52,9 @@ class Code_problemsModel:
 
         response = myapi.add_to_db(codep_querry, codep_data)
         return response
-    def get_codep_by_language(self, title):
-        '''lem
+
+    def get_codep_by_title(self, title):
+        '''
         Get coding problem by its title
         '''
         codep_title_querry='''SELECT * FROM code_problems WHERE title = {}'''.format(title)
@@ -61,36 +62,35 @@ class Code_problemsModel:
         if not codep_response:
             return False
         return codep_response
-# need to confirm------------------------------------
+
+    def delete_codep(self, codeId):
+
+        codeId=str(codeId)
+        delete_codep_querry=''' DELETE FROM code_problems WHERE codeId = {}'''.format(codeId)
+        codep_response= myapi.delete_one(delete_codep_querry)
+        if not codep_response:
+            return False
+        return codep_response
+        
+
 class Search_code_problem:
     def get_codep_by_codeId(self, codeId):
         '''
         Get coding problem by its code Id
         '''
         # codeId=
-        codep_codeId_querry='''SELECT * FROM code_problems WHERE codeId = %s '''.format(codeId)
+        codep_codeId_querry='''SELECT * FROM code_problems WHERE codeId = {}'''.format(codeId)
         codep_response = myapi.retrieve_all(codep_codeId_querry)
         if not codep_response:
             return False
         return codep_response
 
 class language:
-    '''A class thatCreates language table'''
-    def create_lang(self, language):
-        ''' method creating a language'''
-        language_querry="""
-        INSERT INTO language(language)
-        VALUES(%s, %s, %s)
-        RETURNING lang_id, language
-        """
-        codep_data = ( language)
-        response = myapi.add_to_db(language_querry, codep_data)
-        return response
-
+   
     def get_codep_by_language(self, language):
         ''' A class to search by language'''
 
-        codep_language_querry = '''SELECT * FROM language WHERE language = {}'''.format(language)
+        codep_language_querry = '''SELECT * FROM code_problems WHERE language = '{}' '''.format(language)
         codep_response = myapi.retrieve_all(codep_language_querry)
         if not codep_response:
             return False
