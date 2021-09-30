@@ -1,3 +1,4 @@
+import psycopg2
 from flask import request, jsonify
 from flask_restful import Resource, reqparse
 from app.auth.v1.models.user_models import UserModel, Code_problemsModel, Search_code_problem,language
@@ -76,13 +77,15 @@ class Code_problemsModel(Resource):
             "data": new_codep
         }, 201
 
-    def delete(self,codeId):
-        data=codeproblem_model_view.remove_row(codeId)
-        return{
-            "status":200,
-            "data":data
-        }
-        
+
+    # def delete(codeId):
+    #     codeId=str(codeId)
+    #     data = codeproblem_model_view.delete_by_codeId(codeId)
+    #     return{
+    #         "status": "deleted",
+    #         "data":data
+    #         }
+
 class Search_code_problem(Resource):
 
     def get(self,codeId):

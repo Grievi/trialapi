@@ -1,3 +1,5 @@
+import psycopg2
+from app.config import Development
 from .db_model import myapi
 
 
@@ -63,17 +65,6 @@ class Code_problemsModel:
         if not codep_response:
             return False
         return codep_response
-
-    def remove_row(self, codeId):
-
-        codeId=str(codeId)
-        remove_row_querry=''' DELETE FROM code_problems WHERE codeId = '{}' '''.format(codeId)
-        codep_response= myapi.remove_row(remove_row_querry)
-        if not codep_response:
-            return False
-        return codep_response
-       
-        
 
 class Search_code_problem:
     def get_codep_by_codeId(self, codeId):
