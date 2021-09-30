@@ -81,7 +81,7 @@ class myapi:
         cls.cur.execute(query_string)
         return cls.cur.fetchall()
 
-    # @classmethod
-    # def delete_one(cls, query_string):
-    #     cls.cur.execute(query_string)
-    #     return cls.cur.delete_one()
+    @classmethod
+    def remove_row(cls, query_string):
+        cls.cur.execute(query_string)
+        return cls.cur.remove_row()

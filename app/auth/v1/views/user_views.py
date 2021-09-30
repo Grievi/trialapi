@@ -77,7 +77,7 @@ class Code_problemsModel(Resource):
         }, 201
 
     def delete(self,codeId):
-        data=codeproblem_model_view.delete_codep(codeId)
+        data=codeproblem_model_view.remove_row(codeId)
         return{
             "status":200,
             "data":data

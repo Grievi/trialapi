@@ -1,5 +1,6 @@
 from .db_model import myapi
 
+
 class UserModel:
     '''
     Class for user operations
@@ -63,14 +64,15 @@ class Code_problemsModel:
             return False
         return codep_response
 
-    def delete_codep(self, codeId):
+    def remove_row(self, codeId):
 
         codeId=str(codeId)
-        delete_codep_querry=''' DELETE FROM code_problems WHERE codeId = {}'''.format(codeId)
-        codep_response= myapi.delete_one(delete_codep_querry)
+        remove_row_querry=''' DELETE FROM code_problems WHERE codeId = '{}' '''.format(codeId)
+        codep_response= myapi.remove_row(remove_row_querry)
         if not codep_response:
             return False
         return codep_response
+       
         
 
 class Search_code_problem:
