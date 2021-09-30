@@ -39,10 +39,14 @@ class myapi:
             """)
             cls.cur.execute("""
             CREATE TABLE IF NOT EXISTS code_problems(
-                codeId serial PRIMARY kEY,
                 title VARCHAR NOT NULL,
-                language VARCHAR NOT NULL,
-                content VARCHAR NOT NULL
+                language VARCHAR NOT NULL,               
+                content VARCHAR NOT NULL,
+                codeId serial PRIMARY kEY,
+                CONSTRAINT fk_user
+                FOREIGN KEY (userId)
+                REFERENCES users(userId)
+                
             )
             """)
 

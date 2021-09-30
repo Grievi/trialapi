@@ -79,7 +79,6 @@ class Search_code_problem:
         return codep_response
 
 class language:
-   
     def get_codep_by_language(self, language):
         ''' A class to search by language'''
 

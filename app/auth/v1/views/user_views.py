@@ -79,7 +79,7 @@ class Code_problemsModel(Resource):
 class Search_code_problem(Resource):
 
     def get(self,codeId):
-        codeId=str(codeId)
+        # codeId=str(codeId)
         data=search_model_view.get_codep_by_codeId(codeId)
         return {
             "status": 201,
