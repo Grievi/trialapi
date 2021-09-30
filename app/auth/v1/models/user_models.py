@@ -12,7 +12,7 @@ class UserModel:
         """
         Method to create a new user record
         """
-        email_query = """SELECT * FROM users WHERE email = '{}'""".format(email)
+        email_query = """SELECT * FROM users WHERE email = '{}' """.format(email)
         duplicate_email = myapi.retrieve_all(email_query)
         if duplicate_email:
             return False

@@ -59,7 +59,6 @@ class Code_problemsModel(Resource):
         try:
             args=Code_problemsModel.parser.parse_args()
             args = request.get_json()
-            # import pdb; pdb.set_trace()
             new_codep = codeproblem_model_view.create_codep(
                     
                     title=args['title'],
@@ -76,15 +75,6 @@ class Code_problemsModel(Resource):
             "status": 201,
             "data": new_codep
         }, 201
-
-
-    # def delete(codeId):
-    #     codeId=str(codeId)
-    #     data = codeproblem_model_view.delete_by_codeId(codeId)
-    #     return{
-    #         "status": "deleted",
-    #         "data":data
-    #         }
 
 class Search_code_problem(Resource):
 
